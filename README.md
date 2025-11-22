@@ -22,11 +22,29 @@ AetherDrive uses advanced AI models to automatically detect and configure boot e
 
 ## Partition Layout
 
-- EFI System Partition: ~100MB FAT32
+The USB drive is partitioned into three partitions based on Ventoy's scheme with additions:
 
-- Data Partition: exFAT for ISOs
+1. **EFI System Partition (ESP)**:
+   - Size: 100 MB
+   - Filesystem: FAT32
+   - Label: EFI
+   - Purpose: Stores bootloaders (systemd-boot, rEFInd, GRUB), EFI binaries, and boot configurations.
 
-- AETHER Partition: ~128MB FAT32 for AI and config
+2. **Data Partition**:
+   - Size: Remaining space after ESP and AETHER
+   - Filesystem: exFAT
+   - Label: VTOYEFI (following Ventoy convention)
+   - Purpose: Stores user ISOs, images, and other bootable files.
+
+3. **AETHER Partition**:
+   - Size: 128 MB
+   - Filesystem: FAT32
+   - Label: AETHER
+   - Purpose: Contains AI models (ONNX/TFLite), configuration files, persistent data (SQLite/JSON), cache, and the initramfs for the AI orchestrator.
+
+Partition order: ESP (1), Data (2), AETHER (3)
+
+This layout ensures compatibility with UEFI firmware and allows the AI to run in RAM without modifying the data partition.
 
 ## GitHub Repository Setup
 
