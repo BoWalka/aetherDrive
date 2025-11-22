@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# AetherDrive /init script
+# Boots Alpine in RAM, runs AI orchestrator, launches bootloader menu
+
+# Mount necessary filesystems
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+mount -t devtmpfs dev /dev
+
+# Mount the AETHER partition (assume /dev/sda3)
+mkdir -p /aether
+mount /dev/sda3 /aether
+
+# Mount the exFAT data partition (assume /dev/sda2)
+mkdir -p /iso
+mount -t exfat /dev/sda2 /iso
+
+# Run the AI orchestrator
+python3 /aether/ai_orchestrator.py
+
+# After orchestrator, launch rEFInd or systemd-boot
+# Assume rEFInd is installed on ESP
+exec /usr/bin/refind
+
+# If not, fallback
