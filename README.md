@@ -1,7 +1,8 @@
 # AetherDrive
 
-An AI-powered bootable USB utility that requires zero user knowledge to boot any OS.
-
+An AI-powered bootable USB utility with a personality.
+Yeah, I know. Stupid right? It can also run Doom.
+Who's stupid now?
 ## Overview
 
 AetherDrive uses advanced AI models to automatically detect and configure boot entries for ISOs placed on the USB drive. It supports Windows, Linux, macOS, and more, with features like persistence, theme selection, and smart healing.
@@ -10,15 +11,15 @@ AetherDrive uses advanced AI models to automatically detect and configure boot e
 
 - **Bootloader**: systemd-boot, rEFInd, GRUB fallback
 
-- **AI Brain**: ONNX/TFLite models for OS detection and boot configuration
+- **NPU**: ONNX/TFLite models for OS detection and boot configuration
 
-- **Scripts**: Automation scripts
+- **Scripts**: Automation scripts (magic spells)
 
 - **Tools**: Binaries like xorriso, wimlib, etc.
 
 - **Persist**: Persistent data (SQLite, JSON)
 
-- **Themes**: rEFInd themes
+- **THEMES**: rEFInd themes gruuvbox polarized south moch dotfile manburger
 
 ## Partition Layout
 
@@ -49,4 +50,4 @@ This layout ensures compatibility with UEFI firmware and allows the AI to run in
 
 
 
-## Build InsLicense
+-- -- --- -- - -- --- -- - --%BuildInosense% bowalkadesigns 2025 -- - --- -- - -- -- -- -
